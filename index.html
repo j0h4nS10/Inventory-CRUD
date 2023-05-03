@@ -41,7 +41,7 @@
                     <form class="needs-validation" novalidate="" id="formInvent">
                         <div class="row g-3">
                             <div class="col-12">
-                                <label for="firstName" class="form-label">Product</label>
+                                <label for="productForm" class="form-label">Product</label>
                                 <input type="text" class="form-control" id="productForm" placeholder="" value=""
                                     required="">
                                 <div class="invalid-feedback">
@@ -49,7 +49,7 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                                <label for="descriptionForm" class="form-label">Description</label>
                                 <textarea class="form-control" id="descriptionForm" rows="3"></textarea>
                                 <div class="invalid-feedback">
                                     The description is required
@@ -57,7 +57,7 @@
                             </div>
 
                             <div class="col-5">
-                                <label for="email" class="form-label">Price</label>
+                                <label for="priceForm" class="form-label">Price</label>
                                 <input type="number" class="form-control" id="priceForm" placeholder="10, 60, 120">
                                 <div class="invalid-feedback">
                                     Please enter a valid price.
@@ -72,38 +72,18 @@
                                 </div>
                             </div>
                         </div>
-
                         <hr class="my-4">
-
-                        <button class="w-100 btn btn-primary btn-lg" onclick="create()">Continue to
-                            checkout</button>
+                        <button class="w-100 btn btn-primary btn-lg" id="btnAddInventary">Add to inventary</button>
                     </form>
                 </div>
             </div>
         </section>
         <!--end form-->
 
-
-
-        <!--section list inventary -->
-        <div class="container px-4 py-5" id="hanging-icons">
-            <button id="btoReadArray" onclick="readArray()">Listar Inventario</button>
-            <h2 class="pb-2 border-bottom">Invetario</h2>
-            <div class="col-12 d-flex flex-column justify-content-between" id="data_id_for">
-                <!--<div class="row g-4 py-5 row-cols-1 row-cols-lg-3" id="data_id_for">-->
-                <!--<div class="col d-flex align-items-start">
-                    <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
-                    </div>
-                    <div>
-                        <h2>Featured title</h2>
-                    </div>
-                </div>
-                </div>-->
-            </div>
-        </div>
+        
         <section>
             <div class="container">
-            <button id="btoReadArray" onclick="readArrayTable()">Listar Inventario</button>
+            <button id="btnReadArray">Listar Inventario</button>
                 <table class="table">
                     <thead class="table-light">
                         <tr>
@@ -120,15 +100,17 @@
                 </table>
             </div>
         </section>
-
-
-
-        <section>
-            <button id="" onclick="create()">Create</button>
-            <!--0<button id="btoReadArray" onclick="readArray()">Read</button>-->
-            <button onclick="updateArray()">Update</button>
-        </section>
+        
     </main>
+
+
+        <!--section list inventary -->
+        <!--<div class="container px-4 py-5" id="hanging-icons">
+            <button id="btoReadArray" onclick="readArray()">Listar Inventario</button>
+            <h2 class="pb-2 border-bottom">Invetario</h2>
+            <div class="col-12 d-flex flex-column justify-content-between" id="data_id_for">
+            </div>
+        </div>-->
 
     <!--end inventory and main section-->
 
