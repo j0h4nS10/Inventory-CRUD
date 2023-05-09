@@ -5,3 +5,7 @@
 #data_id_for {
     width: 100%;
 }
+
+.classhidden {
+    display: none;
+}

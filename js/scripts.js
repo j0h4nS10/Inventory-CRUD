@@ -9,6 +9,7 @@ const inputPrice = document.getElementById("priceForm");
 const inputCant = document.getElementById("cantForm");
 //const dataForm = document.getElementById("formInvent");
 
+
 // get buttons in js
 const btnAddInventary = document.getElementById("btnAddInventary");
 const btnReadArray = document.getElementById("btnReadArray");
@@ -69,15 +70,15 @@ function create() {
     let data = dataFromserver.name;
     let datastatus = dataFromserver.boolean;
     let inputData = inputDataForm();
+    let nombreProduct = inputData.product;
+    let descriptionProduct = inputData.description;
+    let buyPrice = inputData.price;
+    let cantProduct = inputData.cant;
     if (datastatus == true && inputData != null) {
-        let nombreProduct = inputData.product;
-        let descriptionProduct = inputData.description;
-        let buyPrice = inputData.price;
-        let cantProduct = inputData.cant;
-        console.log(data.length);
+        //console.log(data.length);
         data.push(
             {
-                id: data.length,
+                id: 'id' + (new Date()).getTime(),
                 product: nombreProduct,
                 description: descriptionProduct,
                 price: buyPrice,
@@ -93,7 +94,7 @@ function create() {
         let data = [];
         data.push(
             {
-                id: 0,
+                id: 'id' + (new Date()).getTime(),
                 product: nombreProduct,
                 description: descriptionProduct,
                 price: buyPrice,
@@ -107,12 +108,12 @@ function create() {
     } else {
         console.log("error al leer los datos");
     }
+    //borrar
 }
 
 
-
 //function update
-function updateArray(id, key, valor) {
+function updateArray(id) {
     let dataFromserver = getInfoserver();
     let data = dataFromserver.name;
     let datastatus = dataFromserver.boolean;
@@ -122,14 +123,51 @@ function updateArray(id, key, valor) {
             return item.id === id;
         });
         if (findDataIndex !== -1) {
-            data[findDataIndex][key] = valor;
-            console.log(`Updated element at index ${findDataIndex} with key ${key} and value ${valor}`);
+            console.log(findDataIndex);
+            console.log(data[findDataIndex]);
+            console.log(data[findDataIndex].product);
+
+            dataTableFor.innerHTML = `<td>${findDataIndex}</td>
+            <td><input id="updateProduct" value="${data[findDataIndex].product}"></td>
+            <td><input id="updateDescription" value="${data[findDataIndex].description}"></td>
+            <td><input id="updatePrice" value="${data[findDataIndex].price}"></td>
+            <td><input id="updateAmount" value="${data[findDataIndex].cant}"></td>
+            <td><button class="btn btn-lg btn-primary" onclick="updateObject(${findDataIndex})">Update</button></td>`;
+            console.log(updateProduct);
+            //updateObject();
+            //data[findDataIndex][key] = valor;
+            //console.log(`Updated element at index ${findDataIndex} with key ${key} and value ${valor}`);
         } else {
-            console.log(`Element with id ${id} not found`);
+            //console.log(`Element with id ${id} not found`);
         }
         console.log(`${findDataIndex}`);
     };
 }
+
+//function updateobject
+
+function updateObject(findDataIndex) {
+    let updateProduct = document.getElementById("updateProduct");
+    let updateDescription = document.getElementById("updateDescription");
+    let updatePrice = document.getElementById("updatePrice");
+    let updateAmount = document.getElementById("updateAmount");
+    let Product = updateProduct.value;
+    let Description = updateDescription.value;
+    let Price = updatePrice.value;
+    let Cant = updateAmount.value;
+    let dataFromserver = getInfoserver();
+    let data = dataFromserver.name;
+    //console.log(`la variable data es ${data}`);
+    console.log(Product, Description, Price, Cant);
+    //console.log(data[findDataIndex].product); 
+    data[findDataIndex].product = Product;
+    data[findDataIndex].description = Description;
+    data[findDataIndex].price = Price;
+    data[findDataIndex].cant = Cant;
+    updateInfoserver(data);
+    readArrayTable();
+}
+
 
 //function deleted
 
@@ -148,7 +186,7 @@ function deleteItemArray(id) {
 }
 
 
-
+// function read table
 function readArrayTable() {
     let dataFromserver = getInfoserver();
     let data = dataFromserver.name;
@@ -159,7 +197,7 @@ function readArrayTable() {
         for (let index = 0; index < data.length; index++) {
             const listaproductos = data[index];
             //console.log(`la longitud del objeto es ${listaproductos.length}`);
-            console.log(Object.keys(listaproductos).length);
+            //console.log(Object.keys(listaproductos).length);
             datalength = (Object.keys(listaproductos).length);
             console.log(datalength);
             for (const key of Object.keys(listaproductos)) {
@@ -187,8 +225,7 @@ function readArrayTable() {
                 //console.log(listaproductos);
                 //console.log("final");
                 dataTableFor.innerHTML = contenidoProducto;
-            }
-            ;
+            };
         }
         //)
     } else {
@@ -210,7 +247,11 @@ btnAddInventary.addEventListener("click", function (event) {
 
 
 btnReadArray.addEventListener("click", function (event) {
-    //event.preventDefault();
+    event.preventDefault();
     readArrayTable();
 });
 
+
+//btnUpdate.addEventListener("click", function (event){
+
+//});
