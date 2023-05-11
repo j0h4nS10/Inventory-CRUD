@@ -186,51 +186,28 @@ function deleteItemArray(id) {
 }
 
 
-// function read table
+// function read table    }
 function readArrayTable() {
-    let dataFromserver = getInfoserver();
-    let data = dataFromserver.name;
-    let datastatus = dataFromserver.boolean;
+    let dataFromserver = getInfoserver()
+    let data = dataFromserver.name
+    let datastatus = dataFromserver.boolean
     if (datastatus == true) {
-        //data.forEach(listaproductos => {
-        let contenidoProducto = '';
+        let contenidoProducto = ""
         for (let index = 0; index < data.length; index++) {
-            const listaproductos = data[index];
-            //console.log(`la longitud del objeto es ${listaproductos.length}`);
-            //console.log(Object.keys(listaproductos).length);
-            datalength = (Object.keys(listaproductos).length);
-            console.log(datalength);
-            for (const key of Object.keys(listaproductos)) {
-                //for (const key of listaproductos){
-                const part = listaproductos[key];
-                //console.log(`esta es una parte ${part}`);
-                //console.log(`esta listaproductos.${key} ${listaproductos[key]}`);
-                //console.log(` mirar que dice este dato ${listaproductos[4]} `);
-                //console.log(key);
-                //console.log(`data length ${data.length}, y el index es ${index}`);
-                //console.log(`variable lista productos data length  ${listaproductos[datalength]}`);
-                if (key == "product") {
-                    //contenidoProducto += `<tr><td>${listaproductos[id]}</td>`;
-                    console.log(index);
-                    contenidoProducto += `<td>${listaproductos[key]}</td>`;
-                } else if (key == "cant") {
-                    contenidoProducto += `<td>${listaproductos[key]}</td>`;
-                    contenidoProducto += `<td><button class="btn btn-lg btn-primary" onclick="updateArray(${index})">Edit</button>
-                    <button class="btn btn-lg btn-primary" onclick="deleteItemArray(${index})">Deleted</button></td></tr>`;
-                    console.log("---------------------------------");
-                } else {
-                    contenidoProducto += `<td>${listaproductos[key]}</td>`;
-                }
-                //console.log("pruebaaa",dataTableFor.innerHTML);
-                //console.log(listaproductos);
-                //console.log("final");
-                dataTableFor.innerHTML = contenidoProducto;
-            };
+            const listaproductos = data[index]
+            console.log(listaproductos)
+            contenidoProducto += `<tr><td>${listaproductos.id}</td>`
+            contenidoProducto += `<td>${listaproductos.product}</td>`
+            contenidoProducto += `<td>${listaproductos.description}</td>`
+            contenidoProducto += `<td>${listaproductos.price}</td>`
+            contenidoProducto += `<td>${listaproductos.cant}</td>`
+            contenidoProducto += `<td><button class="btn btn-lg btn-primary" onclick="updateArray('${listaproductos.id}')">Edit</button>
+                           <button class="btn btn-lg btn-primary" onclick="deleteItemArray('${listaproductos.id}')">Deleted</button></td></tr>`
+            dataTableFor.innerHTML = contenidoProducto
         }
-        //)
     } else {
-        dataTableFor.innerHTML = `<div><h1>no hay datos</h1></div>`;
-        console.log("no se tienen datos");
+        dataTableFor.innerHTML = `<div><h1>no hay datos</h1></div>`
+        console.log("no se tienen datos")
     }
 }
 
