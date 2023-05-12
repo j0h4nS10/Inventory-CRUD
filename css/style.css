@@ -11,6 +11,10 @@
     margin: auto;
 }
 
+.width-class-60 {
+    width: 80%;
+}
+
 main .bg-jumbo {
     background-color: #f9f9f9;
     color: black;
