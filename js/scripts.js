@@ -127,7 +127,7 @@ function updateArray(id) {
             console.log(data[findDataIndex]);
             //console.log(data[findDataIndex].product);
 
-            dataTableFor.innerHTML = `<td>${findDataIndex}</td>
+            dataTableFor.innerHTML = `
             <td><input type="text" class="form-control" id="updateProduct" value="${data[findDataIndex].product}"></td>
             <td><input type="text" class="form-control" id="updateDescription" value="${data[findDataIndex].description}"></td>
             <td><input type="number" class="form-control" id="updatePrice" value="${data[findDataIndex].price}"></td>
@@ -196,7 +196,7 @@ function readArrayTable() {
         for (let index = 0; index < data.length; index++) {
             const listaproductos = data[index]
             console.log(listaproductos)
-            contenidoProducto += `<tr><td>${listaproductos.id}</td>`
+            //contenidoProducto += `<tr><td>${listaproductos.id}</td>`
             contenidoProducto += `<td>${listaproductos.product}</td>`
             contenidoProducto += `<td>${listaproductos.description}</td>`
             contenidoProducto += `<td>${listaproductos.price}</td>`
