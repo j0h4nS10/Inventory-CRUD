@@ -86,7 +86,7 @@ function create() {
             }
         );
         updateInfoserver(data);
-        readArrayTable();
+        alert("Added product");
         //data = JSON.stringify(data);
         //window.localStorage.setItem("inventario", data);
         //console.log(data);
@@ -101,7 +101,7 @@ function create() {
                 cant: cantProduct
             });
         updateInfoserver(data);
-        readArrayTable();
+        alert("Added product");
         //console.log(data);
         //data = JSON.stringify(data);
         //window.localStorage.setItem("inventario", data);

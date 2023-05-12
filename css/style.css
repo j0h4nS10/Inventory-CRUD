@@ -16,23 +16,10 @@
     width: 100%;
 }
 
-.classhidden {
-    display: none;
-}
-
 
 @media (max-width: 768px) {
     .widht-class-80 {
-        width: 90%;
+        width: 100%;
         margin: auto;
-    }
-    
-    .signup-class {
-        width: 60px;
-        border-radius: 5px;
-        margin-bottom: 5px;
-        padding-left: 2px;
-        background-color: blue;
-        color: white !important;
     }
 }
