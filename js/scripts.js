@@ -46,7 +46,7 @@ function updateInfoserver(data) {
 function inputDataForm() {
     //console.log(dataForm);
     if (!inputProduct.value && !inputDescription.value && !inputPrice.value && !inputCant.value) {
-        alert("all field must not be empty");
+        alert("All fields must not be empty");
     } else {
         let nombreProduct = inputProduct.value;
         let descriptionProduct = inputDescription.value;
@@ -125,15 +125,15 @@ function updateArray(id) {
         if (findDataIndex !== -1) {
             console.log(findDataIndex);
             console.log(data[findDataIndex]);
-            console.log(data[findDataIndex].product);
+            //console.log(data[findDataIndex].product);
 
             dataTableFor.innerHTML = `<td>${findDataIndex}</td>
-            <td><input id="updateProduct" value="${data[findDataIndex].product}"></td>
-            <td><input id="updateDescription" value="${data[findDataIndex].description}"></td>
-            <td><input id="updatePrice" value="${data[findDataIndex].price}"></td>
-            <td><input id="updateAmount" value="${data[findDataIndex].cant}"></td>
+            <td><input type="text" class="form-control" id="updateProduct" value="${data[findDataIndex].product}"></td>
+            <td><input type="text" class="form-control" id="updateDescription" value="${data[findDataIndex].description}"></td>
+            <td><input type="number" class="form-control" id="updatePrice" value="${data[findDataIndex].price}"></td>
+            <td><input type="number" class="form-control" id="updateAmount" value="${data[findDataIndex].cant}"></td>
             <td><button class="btn btn-lg btn-primary" onclick="updateObject(${findDataIndex})">Update</button></td>`;
-            console.log(updateProduct);
+            //console.log(updateProduct);
             //updateObject();
             //data[findDataIndex][key] = valor;
             //console.log(`Updated element at index ${findDataIndex} with key ${key} and value ${valor}`);
@@ -201,8 +201,10 @@ function readArrayTable() {
             contenidoProducto += `<td>${listaproductos.description}</td>`
             contenidoProducto += `<td>${listaproductos.price}</td>`
             contenidoProducto += `<td>${listaproductos.cant}</td>`
-            contenidoProducto += `<td><button class="btn btn-lg btn-primary" onclick="updateArray('${listaproductos.id}')">Edit</button>
-                           <button class="btn btn-lg btn-primary" onclick="deleteItemArray('${listaproductos.id}')">Deleted</button></td></tr>`
+            contenidoProducto += `<td><button class="btn btn-lg btn-primary mt-2" 
+            onclick="updateArray('${listaproductos.id}')">Edit</button>
+                                  <button class="btn btn-lg btn-primary mt-2" 
+                                  onclick="deleteItemArray('${listaproductos.id}')">Deleted</button></td></tr>`
             dataTableFor.innerHTML = contenidoProducto
         }
     } else {
@@ -218,7 +220,7 @@ function readArrayTable() {
 // event main form
 
 btnAddInventary.addEventListener("click", function (event) {
-    event.preventDefault();
+    //event.preventDefault();
     create();
 });
 

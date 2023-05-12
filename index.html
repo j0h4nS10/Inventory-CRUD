@@ -8,35 +8,69 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
-    <title>Document</title>
+    <title>Inventory</title>
 </head>
 
 <body>
 
-    <!--section Navbar-->
+    <!--section Header Navbar-->
     <section>
         <div class="container">
             <header class="d-flex justify-content-center py-3">
-                <ul class="nav nav-pills">
-                    <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-                </ul>
+                <!--Nav bar-->
+                <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark d-flex">
+                    <div class="container-fluid width-class-80">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarCollapse">
+                            <ul class="navbar-nav mb-2 mb-md-0 ms-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="./">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Products</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Services</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">FAQs</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About Us</a>
+                                </li>
+                            </ul>
+                        </div>
+                </nav>
+                <!--end-navbar-->
+
+                <!--
+
+
+
+                <nav>
+                    <ul class="nav nav-pills">
+                        <li class="nav-item"><a href="./" class="nav-link active" aria-current="page">Home</a></li>
+                        <li class="nav-item"><a href="./" class="nav-link">Features</a></li>
+                        <li class="nav-item"><a href="./" class="nav-link">Pricing</a></li>
+                        <li class="nav-item"><a href="./" class="nav-link">FAQs</a></li>
+                        <li class="nav-item"><a href="./" class="nav-link">About</a></li>
+                    </ul>
+                </nav>-->
             </header>
         </div>
     </section>
     <!--end-->
 
 
-
     <!--form-->
     <main>
         <section>
-            <!--<div class="row g-5">-->
             <div class="container px-4 py-5">
-                <div class="col-md-7 col-lg-8 border">
+                <div class="col-md-7 col-lg-8">
                     <h4 class="mb-3">Add item to the inventory</h4>
                     <form class="needs-validation" novalidate="" id="formInvent">
                         <div class="row g-3">
@@ -56,7 +90,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-5">
+                            <div class="col-6">
                                 <label for="priceForm" class="form-label">Price</label>
                                 <input type="number" class="form-control" id="priceForm" placeholder="10, 60, 120">
                                 <div class="invalid-feedback">
@@ -64,35 +98,36 @@
                                 </div>
                             </div>
 
-                            <div class="col-4">
+                            <div class="col-6">
                                 <label for="address" class="form-label">Amount</label>
-                                <input type="number" class="form-control" id="cantForm" placeholder="1,2,3,4,5" required="">
+                                <input type="number" class="form-control" id="cantForm" placeholder="1,2,3,4,5"
+                                    required="">
                                 <div class="invalid-feedback">
                                     Please enter a valid amount.
                                 </div>
                             </div>
                         </div>
                         <hr class="my-4">
-                        <button class="w-100 btn btn-primary btn-lg" id="btnAddInventary">Add to inventary</button>
+                        <button class="w-100 btn btn-primary btn-lg" id="btnAddInventary">Add Item</button>
                     </form>
                 </div>
             </div>
         </section>
         <!--end form-->
 
-        
+
         <section>
             <div class="container">
-            <button id="btnReadArray">Listar Inventario</button>
+                <div class="mt-2 mb-2"><button id="btnReadArray">List Inventory</button></div>
                 <table class="table">
                     <thead class="table-light">
                         <tr>
                             <th width="20px">Id</th>
-                            <th width="70px">producto</th>
-                            <th width="200px">descripcion</th>
-                            <th width="70px">price</th>
-                            <th width="70px">cantidad</th>
-                            <th width="100px" >Edited...Deleted</th>
+                            <th widtht="70px">Product</th>
+                            <th widtht="200px">Description</th>
+                            <th widtht="70px">Price</th>
+                            <th widtht="70px">Amount</th>
+                            <th widtht="100px">...</th>
                         </tr>
                     </thead>
                     <tbody id="dataTableFor">
@@ -100,21 +135,12 @@
                 </table>
             </div>
         </section>
-        
     </main>
-
-
-        <!--section list inventary -->
-        <!--<div class="container px-4 py-5" id="hanging-icons">
-            <button id="btoReadArray" onclick="readArray()">Listar Inventario</button>
-            <h2 class="pb-2 border-bottom">Invetario</h2>
-            <div class="col-12 d-flex flex-column justify-content-between" id="data_id_for">
-            </div>
-        </div>-->
 
     <!--end inventory and main section-->
 
 
+    <!--begin footer-->
 
     <section>
         <div class="container">
@@ -127,22 +153,28 @@
                     </a>
                     <span class="mb-3 mb-md-0 text-body-secondary">© 2023 Company, Inc</span>
                 </div>
+                <nav>
 
-                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                    <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24">
-                                <use xlink:href="https://www.twitter.com"></use>
-                            </svg></a></li>
-                    <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24">
-                                <use xlink:href="#instagram"></use>
-                            </svg></a></li>
-                    <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24">
-                                <use xlink:href="#facebook"></use>
-                            </svg></a></li>
-                </ul>
+                    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                        <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24">
+                                    <use
+                                        xlink:href="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg">
+                                    </use>
+                                </svg></a></li>
+                        <li class="ms-3"><a class="text-body-secondary" href="https://instagram.com"><svg class="bi"
+                                    width="24" height="24">
+                                    <use xlink:href="https://instagram.com"></use>
+                                </svg></a></li>
+                        <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24">
+                                    <use xlink:href="#facebook"></use>
+                                </svg></a></li>
+                    </ul>
+                </nav>
+
             </footer>
         </div>
     </section>
-
+    <!--end footer-->
 
 
 

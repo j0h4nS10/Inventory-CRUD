@@ -2,6 +2,16 @@
     color: gray;
 }
 
+
+/*media login min width*/
+
+.width-class-80 {
+    width: 70%;
+    margin: auto;
+}
+
+
+
 #data_id_for {
     width: 100%;
 }
