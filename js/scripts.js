@@ -196,7 +196,6 @@ function readArrayTable() {
         for (let index = 0; index < data.length; index++) {
             const listaproductos = data[index]
             console.log(listaproductos)
-            //contenidoProducto += `<tr><td>${listaproductos.id}</td>`
             contenidoProducto += `<td>${listaproductos.product}</td>`
             contenidoProducto += `<td>${listaproductos.description}</td>`
             contenidoProducto += `<td>${listaproductos.price}</td>`
