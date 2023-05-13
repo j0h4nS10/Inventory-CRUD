@@ -7,7 +7,7 @@ const inputProduct = document.getElementById("productForm");
 const inputDescription = document.getElementById("descriptionForm");
 const inputPrice = document.getElementById("priceForm");
 const inputCant = document.getElementById("cantForm");
-//const dataForm = document.getElementById("formInvent");
+const dataForm = document.getElementById("formInvent");
 
 
 // get buttons in js
@@ -221,6 +221,8 @@ function readArrayTable() {
 btnAddInventary.addEventListener("click", function (event) {
     event.preventDefault();
     create();
+    dataForm.reset();
+    readArrayTable();
 });
 
 
@@ -229,7 +231,3 @@ btnReadArray.addEventListener("click", function (event) {
     readArrayTable();
 });
 
-
-//btnUpdate.addEventListener("click", function (event){
-
-//});
