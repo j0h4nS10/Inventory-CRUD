@@ -219,7 +219,7 @@ function readArrayTable() {
 // event main form
 
 btnAddInventary.addEventListener("click", function (event) {
-    //event.preventDefault();
+    event.preventDefault();
     create();
 });
 
